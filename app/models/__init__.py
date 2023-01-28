@@ -8,3 +8,4 @@ from .commande import Commande
 from .detailcommande import Detailcommande
 from .fournisseur import Fournisseur
 from .approvisionnement import Approvisionnement
+from .stock import Stock
