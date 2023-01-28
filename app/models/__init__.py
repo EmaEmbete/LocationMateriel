@@ -7,3 +7,4 @@ from .client import Client
 from .commande import Commande
 from .detailcommande import Detailcommande
 from .fournisseur import Fournisseur
+from .approvisionnement import Approvisionnement

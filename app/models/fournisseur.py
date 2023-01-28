@@ -8,5 +8,5 @@ class Fournisseur(models.Model):
     Email = models.EmailField(max_length = 35)
 
 
-    def __int__(self):
+    def __str__(self):
         return self.NomFournisseur
