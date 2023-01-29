@@ -39,7 +39,7 @@ def create(request):
     form =CommandeForm()
     return render(
         request,
-        'app/detailcommandes/create.html',
+        'app/commandes/create.html',
         {
             'form': form,
             'codes':code,
@@ -60,7 +60,7 @@ def store(request):
         data = Commande.objects.create(client_id = client, CodeCommande = code, DateCommande = DateCommande)
 
         data.save()
-        messages.success(request,"La commande a été Enregistré")
+        # messages.success(request,"La commande a été Enregistré")
         return redirect('/detailcommandes/create')
     
     
