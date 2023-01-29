@@ -61,10 +61,10 @@
                 {% for commande in commandes %}
                 <tr>
 
-                    <td>{{client.id}}</td>
-                    <td>{{client.Codecommande}}</td>
-                    <td>{{commande.client.client}}</td>
-                    <td>{{commande.date}}</td>
+                    <td>{{commande.id}}</td>
+                    <td>{{commande.CodeCommande}}</td>
+                    <td>{{commande.client.NomClient}}</td>
+                    <td>{{commande.DateCommande}}</td>
                     <td>
                        
                         <a class="btn btn-success btn-sm" href="{% url 'commandes_edit' commande.id %}">
