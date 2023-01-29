@@ -1,6 +1,6 @@
 from django.http import HttpRequest
 from django.shortcuts import redirect,render
-from app.models import Detailcommande, Commande, Client, Responsable, Typeoper
+from app.models import Detailcommande, Commande, Materiel, Responsable, Typeoper
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
