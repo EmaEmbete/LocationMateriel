@@ -43,7 +43,7 @@ def store(request):
         if form.is_valid():
             form.save()
             messages.success(request,"Le client a été Enregistré")
-        return redirect('/commandes/create')
+        return redirect('/clients')
     
     
 
