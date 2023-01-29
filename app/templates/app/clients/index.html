@@ -25,8 +25,8 @@
     <!-- button insert -->
     
     <center>
-        <a href="{% url 'clients_create' %}" class="btn btn-primary">new</a>
-
+        
+            <a href="{% url 'clients_create' %}" class="btn btn-primary">Nouveau Client</a>
     </center>
     
 
@@ -74,13 +74,13 @@
                         
                         <a class="btn btn-success btn-sm" href="{% url 'clients_edit' client.id %}">
                             <span class="fas fa-edit"></span>
-                            Modifier
+                           
                         </a>
                         
                         <a class="btn btn-danger btn-sm" onclick="return confirm('Voulez-vous supprimer!!' )"
                             href="{% url 'clients_delete' client.id %}">
                             <span class="fas fa-trash"></span>
-                            Supprimer
+                            
                         </a>
                        
 
