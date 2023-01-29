@@ -42,8 +42,8 @@ def store(request):
         form = ClientForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request,"le client a été Enregistré")
-        return redirect('/clients')
+            messages.success(request,"Le client a été Enregistré")
+        return redirect('/commandes/create')
     
     
 

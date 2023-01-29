@@ -34,31 +34,34 @@ def create(request):
         code = 101
     else :
         code = cmdes.aggregate(max=Max('CodeCommande'))['max'] + 1
+    client = Client.objects.latest('id')
+    # client = Client.objects.latest('NomClient')
     form =CommandeForm()
     return render(
         request,
-        'app/commandes/create.html',
+        'app/detailcommandes/create.html',
         {
             'form': form,
             'codes':code,
+            'clients':client,
         }
     )
     
     
-def store(request):
+def store(request): 
     cmdes = Commande.objects.all()
     if cmdes.count() == 0 :
-        code = 101
+        code = 101 
     else :
         code = cmdes.aggregate(max=Max('CodeCommande'))['max'] + 1
-    if request.method == 'POST' :
+    if request.method == 'POST':
         client = request.POST['client']
         DateCommande = request.POST['DateCommande']
         data = Commande.objects.create(client_id = client, CodeCommande = code, DateCommande = DateCommande)
 
         data.save()
-        messages.success(request,"La commande a été Enregistré")
-        return redirect('/commandes')
+        # messages.success(request,"La commande a été Enregistré")
+        return redirect('/detailcommandes/create')
     
     
 
