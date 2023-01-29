@@ -28,7 +28,7 @@ def index(request):
         
 def create(request):
     commande = Commande.objects.latest('CodeCommande')
-    client = Client.objects.latest('NomClient')
+    materiel = Materiel.objects.all()
     responsable = Responsable.objects.all()
     typeoper = Typeoper.objects.filter(id =1)
     form = DetailcommandeForm()
@@ -38,7 +38,7 @@ def create(request):
         {
             'form': form,
             'commandes': commande,
-            'clients': client,
+            'materiels': materiel,
             'typeopers': typeoper,
             'responsable' : responsable,
 
