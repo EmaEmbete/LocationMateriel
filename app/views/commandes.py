@@ -34,16 +34,16 @@ def create(request):
         code = 101
     else :
         code = cmdes.aggregate(max=Max('CodeCommande'))['max'] + 1
-    client = Client.objects.latest('NomClient')
+    client = Client.objects.latest('id')
     # client = Client.objects.latest('NomClient')
     form =CommandeForm()
     return render(
         request,
-        'app/commandes/create.html',
+        'app/detailcommandes/create.html',
         {
             'form': form,
             'codes':code,
-            'clients':client
+            'clients':client,
         }
     )
     
