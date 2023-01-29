@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Nos Clients</h1>
+                    <h1 class="m-0">Detail sur la commande</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -25,7 +25,7 @@
     <!-- button insert -->
     
     <center>
-        <a href="{% url 'clients_create' %}" class="btn btn-primary">new</a>
+        <a href="{% url 'detailcommandes_create' %}" class="btn btn-primary">Besoin du Client</a>
 
     </center>
     
@@ -50,37 +50,39 @@
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>Nom </th>
-                    <th>Adresse </th>
-                    <th>N° Téléphone </th>
-                    <th>Concerné </th>
-                    <th>Action</th>
+                    <th>Code Commande </th>
+                    <td>Materiel</td>
+                    <th>Type Operation </th>
+                    <th>Quantité </th>
+                    <th>Prix Unitaire </th>
+                    <th>Delais </th>
+                    <th>Responsable </th>
+                    
+                    <th>Actions</th>
 
                 </tr>
             </thead>
             <tbody>
-                {% for client in clients %}
+                {% for detailcommande in detailcommandes %}
                 <tr>
-
-                    <td>{{client.id}}</td>
-                    <td>{{client.NomClient}}</td>
-
-                    <td>{{client.Adresse}}</td>
-                    <td>{{client.Telephone}}</td>
-                    <td>{{client.Email}}</td>
-                    <td>{{client.responsable.responsable}}</td>
+                    <td>{{detailcommande.id}}</td>
+                    <td>{{detailcommande.commande.CodeCommande}}</td>
+                    <td>{{detailcommande.materiel.NomMateriel}}</td>
+                    <td>{{detailcommande.typeoper.NomTypeoper}}</td>
+                    <td>{{detailcommande.Quantite}}</td>
+                    <td>{{detailcommande.PrixUnit}}</td>
+                    <td>{{detailcommande.NombreJour}}</td>
+                    <td>{{detailcommande.responsable.NomRespo}} {{detailcommande.responsable.PrenomRespo}}</td>
 
                     <td>
                         
-                        <a class="btn btn-success btn-sm" href="{% url 'clients_edit' client.id %}">
+                        <a class="btn btn-success btn-sm" href="{% url 'detailcommandes_edit' detailcommande.id %}">
                             <span class="fas fa-edit"></span>
-                            Modifier
                         </a>
                         
                         <a class="btn btn-danger btn-sm" onclick="return confirm('Voulez-vous supprimer!!' )"
-                            href="{% url 'clients_delete' client.id %}">
+                            href="{% url 'detailcommandes_delete' detailcommande.id %}">
                             <span class="fas fa-trash"></span>
-                            Supprimer
                         </a>
                        
 

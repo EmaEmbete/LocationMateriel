@@ -9,12 +9,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Nos Clients</h1>
+                    <h1 class="m-0">Identification de la commande</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Gestion Location Matériel</li>
+                        <li class="breadcrumb-item active">location materiel</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -23,9 +23,9 @@
     <!-- /.content-header -->
 
     <!-- button insert -->
-    
+   
     <center>
-        <a href="{% url 'clients_create' %}" class="btn btn-primary">new</a>
+        <a href="{% url 'commandes_create' %}" class="btn btn-primary">Nouvelle Commande</a>
 
     </center>
     
@@ -50,35 +50,30 @@
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>Nom </th>
-                    <th>Adresse </th>
-                    <th>N° Téléphone </th>
-                    <th>Concerné </th>
+                    <th>Code Commande</th>
+                    <th>Nom du Client</th>
+                    <th>Date Soumission</th>
                     <th>Action</th>
-
                 </tr>
+
             </thead>
             <tbody>
-                {% for client in clients %}
+                {% for commande in commandes %}
                 <tr>
 
-                    <td>{{client.id}}</td>
-                    <td>{{client.NomClient}}</td>
-
-                    <td>{{client.Adresse}}</td>
-                    <td>{{client.Telephone}}</td>
-                    <td>{{client.Email}}</td>
-                    <td>{{client.responsable.responsable}}</td>
-
+                    <td>{{commande.id}}</td>
+                    <td>{{commande.CodeCommande}}</td>
+                    <td>{{commande.client.NomClient}}</td>
+                    <td>{{commande.DateCommande}}</td>
                     <td>
-                        
-                        <a class="btn btn-success btn-sm" href="{% url 'clients_edit' client.id %}">
+                       
+                        <a class="btn btn-success btn-sm" href="{% url 'commandes_edit' commande.id %}">
                             <span class="fas fa-edit"></span>
                             Modifier
                         </a>
-                        
-                        <a class="btn btn-danger btn-sm" onclick="return confirm('Voulez-vous supprimer!!' )"
-                            href="{% url 'clients_delete' client.id %}">
+                       
+                        <a class="btn btn-danger btn-sm" onclick="return confirm('do you want to delete!!' )"
+                            href="{% url 'commandes_delete' commande.id %}">
                             <span class="fas fa-trash"></span>
                             Supprimer
                         </a>
