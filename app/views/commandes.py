@@ -69,7 +69,7 @@ def edit(request, id):
             form = CommandeForm()
         else:
             commande = Commande.objects.get(pk=id)
-            form = ClientForm(instance=client)
+            form = CommandeForm(instance=commande)
         return render(
             request,
             'app/commandes/edit.html',
@@ -82,15 +82,17 @@ def edit(request, id):
         if id == 0:
             form = CommandeForm(request.POST)
         else:
-            commandes = Commande.objects.get(pk=id)
+            commande = Commande.objects.get(pk=id)
             form = CommandeForm(request.POST,instance=commande)
         if form.is_valid():
-            
             form.save()
-            messages.success(request,"Modification des infor du a reussi !!")
+            messages.success(request,"Modification des infor a reussi !!")
         return redirect('/commandes') 
+
+
+
     
 def delete(request, id):
     commande = Commande.objects.get(pk=id)
     commande.delete()
-    return redirect('/commande')         
+    return redirect('/commandes')         
