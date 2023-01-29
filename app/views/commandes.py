@@ -60,7 +60,7 @@ def store(request):
         data = Commande.objects.create(client_id = client, CodeCommande = code, DateCommande = DateCommande)
 
         data.save()
-        messages.success(request,"La commande a été Enregistré")
+        # messages.success(request,"La commande a été Enregistré")
         return redirect('/detailcommandes/create')
     
     
